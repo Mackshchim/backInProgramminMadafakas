@@ -1,4 +1,4 @@
-package com.example.test6;
+package mackshchim.helloweb;
 
 import java.io.*;
 
