@@ -1,4 +1,4 @@
-package mackshchim.firstwebapp;
+package mackshchim.firstwebapp.models;
 
 public abstract class Cortege {
 

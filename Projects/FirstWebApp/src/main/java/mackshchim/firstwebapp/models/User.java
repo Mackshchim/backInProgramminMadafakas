@@ -1,8 +1,8 @@
-package mackshchim.firstwebapp;
+package mackshchim.firstwebapp.models;
 
 import java.util.Date;
 
-public class User extends Cortege{
+public class User extends Cortege {
 
     private String username;
     private String password;

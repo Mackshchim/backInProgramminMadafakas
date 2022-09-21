@@ -1,7 +1,8 @@
 package mackshchim.firstwebapp;
 
+import mackshchim.firstwebapp.models.Cortege;
+
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Set;
 
 public class KindaDatabase {
