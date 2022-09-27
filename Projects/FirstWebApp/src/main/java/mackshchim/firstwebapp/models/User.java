@@ -13,4 +13,17 @@ public class User extends Cortege {
         this.password = password;
         this.birthday = birthday;
     }
+
+    @Override
+    public String getId() {
+        return username;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }
