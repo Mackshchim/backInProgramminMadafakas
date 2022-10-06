@@ -12,4 +12,16 @@
         <constructor-arg value="Mackshchim"/>
     </bean>
 
+    <bean id="cartoonBean"
+          class="tatar.mackshchim.spring0.Cartoon">
+        <constructor-arg index="0" value="001"/>
+        <constructor-arg index="1" value="Падал прошлогодний снег"/>
+    </bean>
+
+    <bean id="videoPlayerBean"
+          class="tatar.mackshchim.spring0.VideoPlayer">
+          <property name="current" ref="cartoonBean"></property>
+    </bean>
+
+
 </beans>
