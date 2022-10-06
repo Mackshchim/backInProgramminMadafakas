@@ -7,6 +7,9 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:property-placeholder location="cartoon.properties"/>
+
+
     <bean id="testBean"
           class="tatar.mackshchim.spring0.TestBean">
         <constructor-arg value="Mackshchim"/>
@@ -14,8 +17,8 @@
 
     <bean id="cartoonBean"
           class="tatar.mackshchim.spring0.Cartoon">
-        <constructor-arg index="0" value="001"/>
-        <constructor-arg index="1" value="Падал прошлогодний снег"/>
+        <constructor-arg index="0" value="${cartoon.videoname}"/>
+        <constructor-arg index="1" value="${cartoon.name}"/>
     </bean>
 
     <bean id="videoPlayerBean"
