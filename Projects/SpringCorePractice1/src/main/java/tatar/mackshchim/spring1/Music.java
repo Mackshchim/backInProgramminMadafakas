@@ -7,10 +7,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Music {
+    @Autowired
     private List<String> authors;
     private String name;
 
-    public Music(@Autowired List<String> authors, String name) {
+    public Music(String name) {
         this.authors = authors;
         this.name = name;
     }

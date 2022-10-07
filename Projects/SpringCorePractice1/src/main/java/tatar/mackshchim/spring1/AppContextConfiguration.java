@@ -24,7 +24,7 @@ public class AppContextConfiguration {
     @Bean
     @Scope("prototype") //for some reason
     public Music music() {
-        Music mus = new Music(list(),"Sadism");
+        Music mus = new Music("Sadism");
         return mus;
     }
 
