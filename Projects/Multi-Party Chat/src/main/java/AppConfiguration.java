@@ -4,24 +4,35 @@ import org.springframework.context.annotation.Configuration;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 @Configuration
 public class AppConfiguration {
 
-    private static final int PORT = 4004;
-    private static final String HOST = "localhost";
+    private final int PORT = 4004;
+    private final String HOST = "localhost";
 
 
     @Bean
-    public ServerSocket serverSocket() throws IOException {
-        return new ServerSocket(PORT);
+    public ServerSocket serverSocket() {
+        try {
+            return new ServerSocket(PORT);
+        } catch (IOException e) {
+            System.err.println(e);
+            return null;
+        }
     }
 
     @Bean
-    public Socket socket() throws IOException {
-        return new Socket(HOST,PORT);
+    public Socket socket() {
+        try {
+            return new Socket(HOST, PORT);
+        } catch (IOException e) {
+            System.err.println(e);
+            return null;
+        }
     }
 
     @Bean

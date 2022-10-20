@@ -30,7 +30,7 @@ public class Client {
 
                 String message = reader.readLine();
 
-                out.write(message);
+                out.write(message + "\n");
                 out.flush();
 
                 String serverMessage = in.readLine();

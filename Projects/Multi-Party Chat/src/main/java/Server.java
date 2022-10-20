@@ -6,7 +6,11 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
-    private static ApplicationContext context;
+    private static final int PORT = 4004;
+    private static final String HOST = "localhost";
+
+
+//    private static ApplicationContext context;
     private static ServerSocket server;
     private static Socket client;
     private static BufferedReader in;
@@ -14,12 +18,13 @@ public class Server {
 
     public static void main(String[] args) {
 
-        context = new AnnotationConfigApplicationContext(AppConfiguration.class);
+//        context = new AnnotationConfigApplicationContext(AppConfiguration.class);
 
         try {
+
             try {
 
-                server = context.getBean(ServerSocket.class);
+                server = new ServerSocket(PORT);
                 System.out.println("Server is running");
 
                 client = server.accept();
@@ -32,7 +37,7 @@ public class Server {
                     String message = in.readLine();
                     System.out.println("Client: " + message);
 
-                    out.write("The message \"" + message +"\" is accepted");
+                    out.write("The message \"" + message +"\" is accepted\n");
                     out.flush();
 
                 } finally {
@@ -40,6 +45,7 @@ public class Server {
                     in.close();
                     out.close();
                 }
+
             } finally {
                 server.close();
                 System.out.println("Server is shut down");
