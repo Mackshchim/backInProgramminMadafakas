@@ -10,12 +10,13 @@ public class Main {
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("DBConfiguration.xml");
 
-        User user1 = new User(1,"lilayka","postgres");
-        User user2 = new User(2,"malayka","postgres");
-        user2.setAboutUser("I hate you");
 
         UserDao userDao = context.getBean("userDao", JdbcUserDao.class);
+
+
         System.out.println(userDao.getUserById(1).getUserName());
         System.out.println(userDao.getUserById(2).getAboutUser());
+        System.out.println(userDao.getUserById(3).getAboutUser());
+        System.out.println(userDao.getUserById(4).getAboutUser());
     }
 }
