@@ -10,6 +10,7 @@ import tatar.mackshchim.lilayka.models.User;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@Deprecated
 public class JdbcUserDao extends JdbcDaoSupport implements UserDao {
     private final String SQL_INSERT_USER = "INSERT INTO public.\"Users\" VALUES (?,?,?,?)";
     private final String SQL_SELECT_USER_BY_ID = "SELECT * FROM public.\"Users\" WHERE id = ?";
