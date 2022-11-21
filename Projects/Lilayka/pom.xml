@@ -22,6 +22,9 @@
       <scope>test</scope>
     </dependency>
 
+
+
+
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
@@ -45,25 +48,6 @@
       <artifactId>spring-jdbc</artifactId>
       <version>5.3.23</version>
     </dependency>
-    <dependency>
-      <groupId>org.jetbrains</groupId>
-      <artifactId>annotations-java5</artifactId>
-      <version>RELEASE</version>
-      <scope>compile</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.postgresql</groupId>
-      <artifactId>postgresql</artifactId>
-      <version>42.5.0</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-core</artifactId>
-      <version>6.1.5.Final</version>
-      <type>pom</type>
-    </dependency>
 
     <dependency>
       <groupId>org.springframework</groupId>
@@ -72,16 +56,68 @@
     </dependency>
 
     <dependency>
-      <groupId>org.hibernate.orm</groupId>
-      <artifactId>hibernate-community-dialects</artifactId>
-      <version>6.1.5.Final</version>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-tx</artifactId>
+      <version>6.0.0</version>
     </dependency>
+
+
+
+
+
+    <dependency>
+      <groupId>org.jetbrains</groupId>
+      <artifactId>annotations-java5</artifactId>
+      <version>RELEASE</version>
+      <scope>compile</scope>
+    </dependency>
+
+
+
+
+
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.5.0</version>
+    </dependency>
+
+
+
+
+
+
+
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>5.4.33.Final</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-annotations</artifactId>
+      <version>3.5.6-Final</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>2.0.4</version>
+    </dependency>
+
+
+
 
     <dependency>
       <groupId>org.apache.tomcat</groupId>
       <artifactId>tomcat-dbcp</artifactId>
       <version>10.1.2</version>
     </dependency>
+
+
+
+
 
     <dependency>
       <groupId>org.hibernate.javax.persistence</groupId>
@@ -94,6 +130,52 @@
       <artifactId>javax.transaction-api</artifactId>
       <version>1.3</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-jpa</artifactId>
+      <version>3.0.0</version>
+    </dependency>
+
+
+
+
+
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-core</artifactId>
+      <version>2.3.0.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+      <version>2.3.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-impl</artifactId>
+      <version>2.3.1</version>
+    </dependency>
+
+
+
+
+    <!--    <dependency>-->
+<!--      <groupId>javax.activation</groupId>-->
+<!--      <artifactId>activation</artifactId>-->
+<!--      <version>1.1</version>-->
+<!--    </dependency>-->
+
+<!--    &lt;!&ndash; https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>org.glassfish.jaxb</groupId>-->
+<!--      <artifactId>jaxb-runtime</artifactId>-->
+<!--      <version>2.3.0</version>-->
+<!--    </dependency>-->
+
+
 
   </dependencies>
 

@@ -1,11 +1,20 @@
 package tatar.mackshchim.lilayka.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "public.\"Users\"")
 public class User {
+    @Id
     private int id;
     private String userName;
     private String password;
     private String aboutUser;
 
+
+    public User() {}
 
     public User(int id, String userName, String password) {
         this.id = id;

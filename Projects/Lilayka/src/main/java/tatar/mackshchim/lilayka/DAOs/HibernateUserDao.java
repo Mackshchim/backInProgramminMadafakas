@@ -4,12 +4,16 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import tatar.mackshchim.lilayka.models.User;
 
-@Repository
+@Deprecated
+@Repository("hibernateUserDao")
+@Transactional
 public class HibernateUserDao implements UserDao{
     private SessionFactory sessionFactory;
 
+    @Autowired
     public HibernateUserDao(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }

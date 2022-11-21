@@ -2,9 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <context:annotation-config />
+    <context:component-scan base-package="tatar.mackshchim.lilayka"/>
+    <tx:annotation-driven/>
 
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -31,10 +33,29 @@
     </bean>
 
 
-    <bean id="userDao"
-          class="tatar.mackshchim.lilayka.DAOs.HibernateUserDao">
-        <constructor-arg ref="sessionFactory"/>
+<!--    <bean id="userDao"-->
+<!--          class="tatar.mackshchim.lilayka.DAOs.HibernateUserDao">-->
+<!--    </bean>-->
+
+    <bean id="jpaVendorAdapter"
+          class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+        <property name="database" value="POSTGRESQL"/>
+        <property name="showSql" value="true"/>
+        <property name="generateDdl" value="false"/>
+        <property name="databasePlatform" value="org.hibernate.dialect.PostgreSQLDialect"/>
     </bean>
+
+<!--    <bean id="emf"-->
+<!--          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"-->
+<!--          >-->
+<!--        <property name="dataSource" ref="dataSource"/>-->
+<!--        <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>-->
+<!--    </bean>-->
+
+
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 
 
 
