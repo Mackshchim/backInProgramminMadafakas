@@ -3,6 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:ehcache
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <context:component-scan base-package="tatar.mackshchim.lilayka"/>
@@ -21,21 +22,27 @@
         <constructor-arg ref="dataSource"/>
     </bean>
 
-    <bean id="sessionFactory"
-          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="configLocation" value="hibernate.cfg.xml" />
-        <property name="hibernateProperties">
-            <props>
-                <prop key="dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
-            </props>
-        </property>
+<!--    <bean id="sessionFactory"-->
+<!--          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">-->
+<!--        <property name="dataSource" ref="dataSource"/>-->
+<!--        <property name="configLocation" value="hibernate.cfg.xml" />-->
+<!--        <property name="hibernateProperties">-->
+<!--            <props>-->
+<!--                <prop key="dialect">org.hibernate.dialect.PostgreSQLDialect</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+    <bean id="transactionManager"
+          class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="emf"/>
     </bean>
 
 
-<!--    <bean id="userDao"-->
-<!--          class="tatar.mackshchim.lilayka.DAOs.HibernateUserDao">-->
-<!--    </bean>-->
+    <bean id="userDao"
+          class="tatar.mackshchim.lilayka.DAOs.JdbcUserDao">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
 
     <bean id="jpaVendorAdapter"
           class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
@@ -45,12 +52,13 @@
         <property name="databasePlatform" value="org.hibernate.dialect.PostgreSQLDialect"/>
     </bean>
 
-<!--    <bean id="emf"-->
-<!--          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"-->
-<!--          >-->
-<!--        <property name="dataSource" ref="dataSource"/>-->
-<!--        <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>-->
-<!--    </bean>-->
+    <bean id="emf"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+          >
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="tatar.mackshchim.lilayka.models"/>
+        <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
+    </bean>
 
 
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>

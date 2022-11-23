@@ -6,6 +6,6 @@ public interface UserDao {
 
     void addUser(User user);
 
-    User getUserById(int id);
+    User getUserById(long id);
 
 }

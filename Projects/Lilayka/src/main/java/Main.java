@@ -13,12 +13,12 @@ public class Main {
                 new ClassPathXmlApplicationContext("DBConfiguration.xml");
 
 
-        UserDao userDao = context.getBean("userDao", UserDao.class);
+        UserDao userDao = context.getBean("jpaUserDao", UserDao.class);
+        User u = new User(1,"lilayka","postgres");
+        u.setAboutUser("I love you!");
+        userDao.addUser(u);
 
 
-        System.out.println(userDao.getUserById(1).getUserName());
-        System.out.println(userDao.getUserById(2).getAboutUser());
-        System.out.println(userDao.getUserById(3).getAboutUser());
-        System.out.println(userDao.getUserById(4).getAboutUser());
+        System.out.println(userDao.getUserById(6).getAboutUser());
     }
 }

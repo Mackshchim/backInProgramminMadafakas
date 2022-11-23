@@ -1,42 +1,51 @@
 package tatar.mackshchim.lilayka.models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "public.\"Users\"")
+@Table(name = "public.\"user\"")
 public class User {
     @Id
-    private int id;
-    private String userName;
+    private long userId;
+    private String username;
     private String password;
     private String aboutUser;
 
 
     public User() {}
 
-    public User(int id, String userName, String password) {
-        this.id = id;
-        this.userName = userName;
+    public User(long userId, String username, String password) {
+        this.userId = userId;
+        this.username = username;
         this.password = password;
         this.aboutUser = "";
     }
 
-    public int getId() {
-        return id;
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+        this.aboutUser = "";
     }
 
-    public void setId(int id) {
-        this.id = id;
+
+
+    public long getUserId() {
+        return userId;
     }
 
-    public String getUserName() {
-        return userName;
+    public void setUserId(long id) {
+        this.userId = id;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String userName) {
+        this.username = userName;
     }
 
     public String getAboutUser() {

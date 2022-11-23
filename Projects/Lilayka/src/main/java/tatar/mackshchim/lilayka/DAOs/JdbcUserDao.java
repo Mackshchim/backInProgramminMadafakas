@@ -2,8 +2,6 @@ package tatar.mackshchim.lilayka.DAOs;
 
 import org.jetbrains.annotations.NotNull;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ParameterMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import tatar.mackshchim.lilayka.models.User;
 
@@ -18,13 +16,13 @@ public class JdbcUserDao extends JdbcDaoSupport implements UserDao {
 
     public void addUser(@NotNull User user) {
         getJdbcTemplate().update(SQL_INSERT_USER,
-                user.getId(),
-                user.getUserName(),
+                user.getUserId(),
+                user.getUsername(),
                 user.getPassword(),
                 user.getAboutUser());
     }
 
-    public User getUserById(int id) {
+    public User getUserById(long id) {
         return getJdbcTemplate().queryForObject(
 
                 SQL_SELECT_USER_BY_ID,
